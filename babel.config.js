@@ -18,7 +18,7 @@ module.exports = {
         ],
         alias: {
           '@navigation': './src/navigation',
-          '@navigation': './src/screens',
+          '@screens': './src/screens',
         },
       },
     ],
