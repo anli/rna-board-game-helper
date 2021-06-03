@@ -1,4 +1,4 @@
-package com.template;
+package com.anlify.boardgamehelper;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "Template";
+    return "BoardGameHelper";
   }
 }
