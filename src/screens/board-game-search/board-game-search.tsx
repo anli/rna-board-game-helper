@@ -17,13 +17,10 @@ const Component = () => {
     canGoBack() && goBack();
   };
 
-  const onSelected = (id: string) => {
-    console.log(id);
-  };
-
   return (
     <Screen>
       <Searchbar
+        testID="Searchbar"
         placeholder="Search"
         onDebounceChangeText={setSearchText}
         icon="arrow-left"
@@ -34,9 +31,7 @@ const Component = () => {
         data={data}
         keyExtractor={({id}) => id}
         renderItem={({item}) => {
-          return (
-            <List.Item title={item.name} onPress={() => onSelected(item.id)} />
-          );
+          return <List.Item title={item.name} />;
         }}
       />
     </Screen>

@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import {StackNavigationOptions} from '@react-navigation/stack';
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, ViewProps} from 'react-native';
 import {Button} from 'react-native-paper';
 
 const Component = () => {
@@ -11,7 +11,7 @@ const Component = () => {
   };
 
   return (
-    <Screen>
+    <Screen testID="HomeScreen">
       <Button onPress={onAddGame}>Add Game</Button>
     </Screen>
   );
@@ -23,6 +23,6 @@ const options: StackNavigationOptions = {
 
 export const HomeScreen = {Component, options};
 
-const Screen = ({children}: any) => {
-  return <SafeAreaView>{children}</SafeAreaView>;
+const Screen: React.FC<ViewProps> = ({children, ...props}) => {
+  return <SafeAreaView {...props}>{children}</SafeAreaView>;
 };

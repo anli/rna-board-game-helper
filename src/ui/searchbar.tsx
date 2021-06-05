@@ -5,6 +5,7 @@ import {Searchbar as SearchbarNative} from 'react-native-paper';
 const DEBOUNCE_MS = 1000;
 
 type Props = {
+  testID: string;
   onIconPress: () => void;
   icon: string;
   placeholder: string;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export const Searchbar = ({
+  testID,
   icon,
   placeholder,
   onDebounceChangeText,
@@ -36,6 +38,7 @@ export const Searchbar = ({
 
   return (
     <SearchbarNative
+      testID={testID}
       placeholder={placeholder}
       onChangeText={onChangeText}
       value={value}
