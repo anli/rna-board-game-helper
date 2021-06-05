@@ -14,3 +14,10 @@ jest.mock('react-native-reanimated', () => {
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
 jest.useFakeTimers();
+jest.mock('lodash', () => ({
+  ...jest.requireActual('lodash'),
+  debounce: (fn: any) => {
+    fn.cancel = jest.fn();
+    return fn;
+  },
+}));

@@ -4,7 +4,7 @@ import {App} from './app';
 
 describe('App', () => {
   it('App can load', () => {
-    const {getByText} = render(<App />);
-    expect(getByText('App')).toBeDefined();
+    const {getByTestId} = render(<App />);
+    expect(getByTestId('HomeScreen')).toBeDefined();
   });
 });

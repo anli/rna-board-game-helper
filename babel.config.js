@@ -17,6 +17,10 @@ module.exports = {
           '.json',
         ],
         alias: {
+          '@test': './src/test',
+          '@hooks': './src/hooks',
+          '@ui': './src/ui',
+          '@api': './src/api',
           '@navigation': './src/navigation',
           '@screens': './src/screens',
         },

@@ -40,6 +40,10 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "./",
     "paths": {
+      "@test": ["./src/test"],
+      "@hooks": ["./src/hooks"],
+      "@ui": ["./src/ui"],
+      "@api": ["./src/api"],
       "@navigation": ["./src/navigation"],
       "@screens": ["./src/screens"]
     },
