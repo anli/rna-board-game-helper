@@ -3,7 +3,9 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack';
+import {ThemeProvider} from '@shopify/restyle';
 import {render as testingLibraryRender} from '@testing-library/react-native';
+import {theme} from '@themes';
 import React, {ComponentType} from 'react';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {QueryClient, QueryClientProvider} from 'react-query';
@@ -19,18 +21,20 @@ export const render = ({
   options: StackNavigationOptions;
 }) => {
   return testingLibraryRender(
-    <PaperProvider>
-      <QueryClientProvider client={queryClient}>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Component"
-              component={component}
-              options={options}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </QueryClientProvider>
-    </PaperProvider>,
+    <ThemeProvider theme={theme}>
+      <PaperProvider>
+        <QueryClientProvider client={queryClient}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Component"
+                component={component}
+                options={options}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </QueryClientProvider>
+      </PaperProvider>
+    </ThemeProvider>,
   );
 };
