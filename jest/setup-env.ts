@@ -1,5 +1,10 @@
 import {server} from '@test';
 
-beforeAll(() => server.listen());
+beforeAll(() => {
+  jest.useFakeTimers();
+  server.listen();
+});
 afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+afterAll(() => {
+  server.close();
+});

@@ -1,6 +1,8 @@
+import {gamesSlice} from '@games';
 import {useSearchBoardGame} from '@hooks';
 import {useNavigation} from '@react-navigation/core';
 import {StackNavigationOptions} from '@react-navigation/stack';
+import {useAppDispatch} from '@store';
 import {Searchbar} from '@ui';
 import React, {useState} from 'react';
 import {FlatList, SafeAreaView} from 'react-native';
@@ -12,9 +14,15 @@ const Component = () => {
   const [searchText, setSearchText] = useState('');
   const {data} = useSearchBoardGame(searchText);
   const {canGoBack, goBack} = useNavigation();
+  const dispatch = useAppDispatch();
 
   const onBack = () => {
     canGoBack() && goBack();
+  };
+
+  const onSelectItem = async (item: {id: string; name: string}) => {
+    await dispatch(gamesSlice.actions.addOne(item));
+    onBack();
   };
 
   return (
@@ -31,7 +39,9 @@ const Component = () => {
         data={data}
         keyExtractor={({id}) => id}
         renderItem={({item}) => {
-          return <List.Item title={item.name} />;
+          return (
+            <List.Item title={item.name} onPress={() => onSelectItem(item)} />
+          );
         }}
       />
     </Screen>
