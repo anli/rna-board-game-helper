@@ -15,3 +15,9 @@ Feature: Board Game Search
     When I enter 'board' to 'Searchbar'
     Then I should see search results
 
+  Scenario: Select game
+    Given I am at 'Board Game Search' screen
+    And I enter 'board' to 'Searchbar'
+    When I press 'Board Game A' search result item
+    Then I should go back to previous screen
+    And I should see 'Board Game A'

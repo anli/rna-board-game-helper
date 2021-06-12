@@ -10,9 +10,7 @@ type Game = {
   name: string;
 };
 
-const gamesAdapter = createEntityAdapter<Game>({
-  sortComparer: (a, b) => a.name.localeCompare(b.name),
-});
+const gamesAdapter = createEntityAdapter<Game>({});
 
 export const gamesSlice = createSlice({
   name: 'games',

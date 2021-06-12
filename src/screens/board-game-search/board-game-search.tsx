@@ -20,8 +20,8 @@ const Component = () => {
     canGoBack() && goBack();
   };
 
-  const onSelectItem = (item: {id: string; name: string}) => {
-    dispatch(gamesSlice.actions.addOne(item));
+  const onSelectItem = async (item: {id: string; name: string}) => {
+    await dispatch(gamesSlice.actions.addOne(item));
     onBack();
   };
 
